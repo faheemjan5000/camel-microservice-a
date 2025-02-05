@@ -7,9 +7,16 @@ import org.springframework.stereotype.Component;
 public class ActiveMqSenderRouter extends RouteBuilder {//this router will send messages to activeMq
     @Override
     public void configure() throws Exception {
-        from("timer:active-mq-timer?period=10000")
-                //.log("Message generated : ${body}")
-                .transform().constant("My message for active mq")
+
+        //timer endpoint i.e reading from timer
+//        from("timer:active-mq-timer?period=10000")
+//                //.log("Message generated : ${body}")
+//                .transform().constant("My message for active mq")
+//                .log("${body}")
+//                .to("activemq:my-activemq-queue");//writing it to the queue
+
+        //file endpoint i.e reading from a file and save it to activemq
+        from("file:files/json")
                 .log("${body}")
                 .to("activemq:my-activemq-queue");//writing it to the queue
     }
