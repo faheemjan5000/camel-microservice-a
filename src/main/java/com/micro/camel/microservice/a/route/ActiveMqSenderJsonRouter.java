@@ -3,8 +3,8 @@ package com.micro.camel.microservice.a.route;
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
 
-@Component
-public class ActiveMqSenderRouter extends RouteBuilder {//this router will send messages to activeMq
+//@Component   ############## REMOVE THE COMMENT WHEN TO USE IT ####################
+public class ActiveMqSenderJsonRouter extends RouteBuilder {//this router will send messages to activeMq
     @Override
     public void configure() throws Exception {
 
